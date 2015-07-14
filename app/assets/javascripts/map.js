@@ -41,7 +41,8 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
 
-  var polyline = L.polyline(x, polyline_options).addTo(map);
+ //x
+  polyline = L.polyline(x, polyline_options).addTo(map);
 
   L.mapbox.featureLayer({
     type: 'Feature',
