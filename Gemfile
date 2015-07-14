@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'polylines'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-gem 'ruby'. '2.0.0'
+gem 'ruby', '2.0.0'
 gem 'rails_12factor'
 # Use sqlite3 as the database for Active Record
 group :production do
