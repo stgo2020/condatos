@@ -20,7 +20,6 @@
       <tr>
         <td><%= point.latitud %></td>
         <td><%= point.longitud %></td>
-        <td><%= point.tiempo.strftime("%I:%M:%S %p") %></td>
         <td><%= link_to 'Editar', edit_track_point_path(point.track, point) %></td>
         <td><%= link_to 'Eliminar', [point.track, point], method: :delete, data: { confirm: 'Estás seguro?' } %></td>
       </tr>
