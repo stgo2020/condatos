@@ -1,7 +1,7 @@
 
  /////////////////////////////////////////// Obtener info desde modelo /tracks/id/points.json /////////////////////////////////////////
 
-  $.getJSON('http://192.168.0.20/tracks/' + gon.track_number.id + '/points.json', function (data){
+  $.getJSON('http://rubiapp.herokuapp.com/tracks/' + gon.track_number.id + '/points.json', function (data){
 	elemento = data;
 	x = new Array(elemento.length);                     // Arreglo x mantiene todas las coordenadas del metodo latlng 
 	
