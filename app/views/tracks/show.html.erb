@@ -1,14 +1,63 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Recorrido:</strong>
   <%= @track.name %>
 </p>
 
 <p>
   <strong>Fecha:</strong>
-  <%= @track.fecha %>
+  <%= @track.fecha %>  
 </p>
 
-<%= link_to 'Edit', edit_track_path(@track) %> |
-<%= link_to 'Back', tracks_path %>
+<p>
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+<style>
+ .ui-control {
+  font:bold 12px/20px 'Helvetica', sans-serif;
+  background:#404040;
+  color:#fff;
+  position:absolute;
+  top:0;right:0;bottom:0;
+  z-index:100;
+  width:25%;
+  padding:10px;
+  }
+  .ui-control label {
+    text-transform:uppercase;
+    display:block;
+    font-weight:bold;
+    color:rgba(255,255,255,0.5);
+    margin-bottom:5px;
+    }
+  .ui-control strong {
+    font-size:32px;
+    line-height:38px;
+    }
+</style>
+<div id='map' class=dark></div>
+<div id='count' class='ui-control'></div>
+<script>
+
+var polyline_options = {  // caracteristicas de la polylinea dibujada
+    color: '#ff0000'
+};
+
+
+</script>
+
+
+<%= link_to 'Cambiar Nombre', edit_track_path(@track) %>
+
+<%= link_to 'Agregar Puntos', track_points_path(@track) %> 
+
+<%= link_to 'Volver a Recorridos', tracks_path %> 
+
+
+<!--  <%= link_to 'Edit', edit_track_path(@track) %> |
+<%= link_to 'Back', tracks_path %> -->

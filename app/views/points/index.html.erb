@@ -1,0 +1,42 @@
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Latitud</th>
+      <th>Longitud</th>
+      <th>Tiempo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= point.latitud %></td>
+        <td><%= point.longitud %></td>
+        <td><%= point.tiempo.strftime("%I:%M:%S %p") %></td>
+        <td><%= link_to 'Editar', edit_track_point_path(point.track, point) %></td>
+        <td><%= link_to 'Eliminar', [point.track, point], method: :delete, data: { confirm: 'Estás seguro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h2>Importar Datos</h2>
+<%= form_tag import_track_points_path, multipart: true do%>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Subir Archivo" %>
+  <% end %>
+
+
+<%= link_to 'Nuevo Punto', new_track_point_path %>
+<%= link_to 'Lista', tracks_path %>

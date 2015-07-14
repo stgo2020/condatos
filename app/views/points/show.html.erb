@@ -1,0 +1,22 @@
+<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitud:</strong>
+  <%= @point.latitud %>
+</p>
+
+<p>
+  <strong>Longitud:</strong>
+  <%= @point.longitud %>
+</p>
+
+<p>
+  <strong>Tiempo:</strong>
+  <%= @point.tiempo %>
+</p>
+
+
+<%= link_to 'Back', track_points_path(@point.track) %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  latitud: 1.5
+  longitud: 1.5
+  tiempo: 2015-07-11 13:58:42
+  track_id: 
+
+two:
+  latitud: 1.5
+  longitud: 1.5
+  tiempo: 2015-07-11 13:58:42
+  track_id: 
