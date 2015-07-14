@@ -54,7 +54,7 @@ class PointsController < ApplicationController
   def import
     track = Track.find(params[:track_id])
     track.points.import(params[:file])
-    redirect_to track_points_path, notice: "Datos subidos correctamente"
+    redirect_to tracks_path, notice: "Datos subidos correctamente"
   end
 
 
