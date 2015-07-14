@@ -13,7 +13,7 @@ class PointsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @comments }
+      format.xml  { render :xml => @points }
       format.json { render :json => @points.to_json(:methods => [:latlng ] , :only => [:tiempo])}  #Entrega arrays del metodo latlng (modelo point.rb)
      #format.json { render :json => @track.to_json(:methods => [:polyline],:only => [:name])}
     end
@@ -28,7 +28,7 @@ class PointsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @comments }
+      format.xml  { render :xml => @point }
       format.json { render :json => @point}
     end
   end

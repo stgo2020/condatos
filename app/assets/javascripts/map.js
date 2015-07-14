@@ -11,35 +11,35 @@
 
 ///////////////////////////////// Calculo de Centroide del Mapa //////////////////////////////////////////////
 
-  lat_max = x[0][0];                                  // inicializar variables
-  lat_min = x[0][0];
-  lon_max = x[0][1];
-  lon_min = x[0][1];
+ // lat_max = x[0][0];                                  // inicializar variables
+ // lat_min = x[0][0];
+ // lon_max = x[0][1];
+ // lon_min = x[0][1];
 
-  for (var j = 0; j < x.length; j++) {                // metodo para obtener los extremos de la ruta
-      latitud  = x[j][0];                             // latitud  iniciales
-      longitud = x[j][1];                             // longitud iniciales
-      if (lat_max < latitud){                          
-          lat_max = latitud;
-      }
-      if (lat_min > latitud){ 
-          lat_min = latitud;
-      }
-      if (lon_max < longitud){ 
-          lon_max = longitud;
-      }
-      if (lon_min > longitud){ 
-        lon_min = longitud;
-      }
-  }
+ // for (var j = 0; j < x.length; j++) {                // metodo para obtener los extremos de la ruta
+ //     latitud  = x[j][0];                             // latitud  iniciales
+ //     longitud = x[j][1];                             // longitud iniciales
+ //     if (lat_max < latitud){                          
+ //         lat_max = latitud;
+ //     }
+ //     if (lat_min > latitud){ 
+ //         lat_min = latitud;
+ //     }
+ //     if (lon_max < longitud){ 
+ //         lon_max = longitud;
+ //     }
+ //     if (lon_min > longitud){ 
+ //       lon_min = longitud;
+ //     }
+ // }
 
-  lat_center = (lat_max + lat_min)/2;                   // calculo del centroide de la ruta
-  lon_center = (lon_max + lon_min)/2;  
+ // lat_center = (lat_max + lat_min)/2;                   // calculo del centroide de la ruta
+ // lon_center = (lon_max + lon_min)/2;  
   
   L.mapbox.accessToken = 'pk.eyJ1Ijoic3RnbzIwMjAiLCJhIjoiNWsxUk9SbyJ9.vm-DGjtV90O2SPz_MaLQNQ';
 
   var map = L.mapbox.map('map', 'mapbox.streets')
-    .setView([lat_center, lon_center], 12);
+    .setView([-33, -77], 12);
 
   var polyline = L.polyline(x, polyline_options).addTo(map);
 
