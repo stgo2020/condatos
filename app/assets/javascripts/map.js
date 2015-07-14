@@ -98,7 +98,7 @@
   fecha_0 = fecha_0[0];
   fecha_f = fecha_f[0];
   if (fecha_0 == fecha_f){                            // En el caso de que el tiempo transcurra en el mismo dia
-    tiempo_segundos =  horas_f*3600 + minutos_f*60 + segundos_f - horas_0*3600 - minutos_0*60 - segundos_0;   // tiempo_segundos: tiempo total en segundos
+    tiempo_segundos =  Math.abs(horas_f*3600 + minutos_f*60 + segundos_f - horas_0*3600 - minutos_0*60 - segundos_0);   // tiempo_segundos: tiempo total en segundos
     horas_total     =  Math.floor(tiempo_segundos / 3600)                                                     // horas_total: Parte entera del tiempo total en horas
     minutos_total   =  Math.floor((tiempo_segundos - horas_total*3600)/60)                                    // minutos_total: Parte entera del tiempo total en minutos
     segundos_total  =  Math.floor(tiempo_segundos - minutos_total*60 - horas_total*3600)                      // segundos_total: Parte entera del tiempo total en segundos
