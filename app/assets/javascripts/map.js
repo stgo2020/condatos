@@ -86,11 +86,11 @@
   //  L.polyline(y[j], polyline_options).addTo(map);
   //}
 
-L.polyline(y[0], polyline_options).addTo(map);
+//L.polyline(y[0], polyline_options).addTo(map);
 
-L.polyline(y[1], polyline_options).addTo(map);
+//L.polyline(y[1], polyline_options).addTo(map);
 
-L.polyline(y[2], polyline_options).addTo(map);
+//L.polyline(y[2], polyline_options).addTo(map);
 
 L.polyline(y[3], polyline_options).addTo(map);
 
