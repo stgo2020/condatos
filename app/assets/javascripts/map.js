@@ -10,46 +10,6 @@
    		x[i] = elemento[i].latlng;
 	}
 
-/////////////////////////////////////////// Separa el arreglo latlng en subarreglos ///////////////////////////////////////////////////7
-
-  arreglos = Math.floor(x.length/100);
-  y = new Array(arreglos + 1);
- 
-  if(largo <=100){                                 // primera parte del arreglo. Ver pagina 60
-      y[0] = new Array(largo);                     // en case de ser menor de 100 elementos
-      for(var j = 0; j < largo ; j++){
-        y[0][j] = x[j];
-      }
-  }
-
-  pos_arreglo = 0;
-  pos_data = 0;
-  
-  if(largo > 100){                                // segundo caso
-  
-      y[0] = new Array(100); 
-
-      for(var i = 0; i < largo ; i++){
-         
-        y[pos_arreglo][pos_data] = x[i];
-        
-        pos_data = pos_data + 1;
-
-        if(pos_data >= 100){
-          pos_data = 0;
-          pos_arreglo = pos_arreglo + 1;
-          cantidad = largo - i;
-          if(cantidad >= 100){
-            y[pos_arreglo] = new Array(100); 
-          }
-          else{
-            y[pos_arreglo] = new Array(cantidad - 1); 
-          } 
-        }      
-
-      }
-  }
-
 ///////////////////////////////// Calculo de Centroide del Mapa //////////////////////////////////////////////
 
   lat_max = x[0][0];                                  // inicializar variables
@@ -82,17 +42,7 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
 
-  //for(var j = 0; j < y.length; j++){               // Dibujo la linea
-  //  L.polyline(y[j], polyline_options).addTo(map);
-  //}
-
-//L.polyline(y[0], polyline_options).addTo(map);
-
-//L.polyline(y[1], polyline_options).addTo(map);
-
-//L.polyline(y[2], polyline_options).addTo(map);
-
-L.polyline(y[3], polyline_options).addTo(map);
+  L.polyline(x, polyline_options).addTo(map);
 
 
   L.mapbox.featureLayer({
