@@ -4,6 +4,8 @@ gem 'rails', '4.2.0'
 
 gem 'rails_12factor'
 
+gem 'rails_admin' 
+
 
 gem 'ruby'
 # Use sqlite3 as the database for Active Record
