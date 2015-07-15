@@ -82,9 +82,15 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
 
-  for(var j = 0; j < y.length; j++){               // Dibujo la linea
-    L.polyline(y[j], polyline_options).addTo(map);
-  }
+  //for(var j = 0; j < y.length; j++){               // Dibujo la linea
+  //  L.polyline(y[j], polyline_options).addTo(map);
+  //}
+
+L.polyline(y[0], polyline_options).addTo(map);
+
+L.polyline(y[1], polyline_options).addTo(map);
+
+L.polyline(y[2], polyline_options).addTo(map);
 
   L.mapbox.featureLayer({
     type: 'Feature',
