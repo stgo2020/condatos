@@ -3,6 +3,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 
 gem 'rails_12factor'
+
+
+gem 'ruby'
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'
