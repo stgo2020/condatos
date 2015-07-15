@@ -80,7 +80,7 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
 
-  for(var j = 0; j < y.length - 1; j++){               // Dibujo la linea
+  for(var j = 0; j < y.length; j++){               // Dibujo la linea
     L.polyline(y[j], polyline_options).addTo(map);
   }
 
