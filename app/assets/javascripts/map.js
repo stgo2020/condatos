@@ -40,10 +40,12 @@
           pos_arreglo = pos_arreglo + 1;
           cantidad = largo - i;
           if(cantidad >= 100){
-            cantidad = 100;
+            y[pos_arreglo] = new Array(100); 
           }
-          y[pos_arreglo] = new Array(cantidad); 
-          }      
+          else{
+            y[pos_arreglo] = new Array(cantidad - 1); 
+          } 
+        }      
 
       }
   }
