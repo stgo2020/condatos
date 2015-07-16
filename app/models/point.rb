@@ -4,7 +4,7 @@ class Point < ActiveRecord::Base
   
   belongs_to :track
 
-    def self.import(file)
+    def self.import(file)  # Se podria mejorar haciendo ingresos de 500 arreglos por INSERT
 	
 		point = Point.new  # Creo un punto para obtener track_id, luego este punto se debe eliminar
 		point.save!
@@ -20,7 +20,7 @@ class Point < ActiveRecord::Base
 		res = ActiveRecord::Base.connection.execute('begin')
   		CSV.foreach(file.path, headers: true) do |row|
         #inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
-        sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (" + id + "," + row[0] + "," + row[1] + ", '" + row[2] + "' , '" + created_at +"', '" + updated_at + "')"   
+        sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (" + id + "," + row[0] + "," + row[1] + ", '" + row[2] + "' , '" + created_at +"', '" + created_at + "')"   
         res = ActiveRecord::Base.connection.execute(sql)
     	
     	end
