@@ -29,7 +29,7 @@ class Point < ActiveRecord::Base
         #    res = ActiveRecord::Base.connection.execute(sql)
     	end
  # 		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,"01:01:02",1,1)'
-		sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (40, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
+		sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
 
 		
 		res = ActiveRecord::Base.connection.execute(sql)
