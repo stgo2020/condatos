@@ -9,11 +9,11 @@ class Point < ActiveRecord::Base
     	#id = ActiveRecord::Base.connection.execute('lastval') # Esta linea es la clave
     	
 		
-		point = Point.new
-		point.save!
-		id_punto = point.id
-		id = point.track_id
-		id = id.to_s
+#		point = Point.new
+#		point.save!
+#		id_punto = point.id
+#		id = point.track_id
+#		id = id.to_s
 		#point = Point.destroy(id_punto)
 
     	inserts = ''
@@ -22,9 +22,7 @@ class Point < ActiveRecord::Base
 
 		res = ActiveRecord::Base.connection.execute('begin')
   		CSV.foreach(file.path, headers: true) do |row|
-#            inserts = '(' + id + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
-
-		inserts = '(' + id + ',' + row[0] + ',' + row[1] + ',' + row[2] + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
+        inserts = '(63' + id + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
 
             sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
             res = ActiveRecord::Base.connection.execute(sql)
