@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :tracks do
     resources :points do
       collection { post :import }

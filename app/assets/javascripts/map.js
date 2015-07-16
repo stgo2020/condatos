@@ -4,8 +4,34 @@
   $.getJSON('/tracks/' + gon.track_number.id + '/points.json', function (data){
 	elemento = data;
   largo = elemento.length;
-	x = new Array(elemento.length);                     // Arreglo x mantiene todas las coordenadas del metodo latlng 
-	
+	x  = new Array(elemento.length);                     // Arreglo x mantiene todas las coordenadas del metodo latlng 
+	t  = new Array(elemento.length);
+  t1 = new Array(elemento.length);
+
+  for (var i = 0; i < elemento.length; i++) {         // Obtengo elemento tiempo
+      t[i] = elemento[i].tiempo;
+  }
+
+  t1[0] = t[0];                                       // Inicializacion de fecha
+  t1[1] = "2020-20-01T20:00:00.000Z";                 // Fecha de Orden mayor virtualmente infinito
+  for (var i = 0; i < t.length; i++) {                // Revision del vector t original
+      
+      for(var j = 0; j < t.length; j++){              // Revision de vector t1, modificado
+
+          if((t[i] > t1[j]) & (t[i] < t1[j+1])){
+    
+              for(var k = j+1; k < t.length; k++){    // Correr vector desde pos i+1 a la i+2
+                t1[k+1]=t1[k];}
+        
+              t1[j+1] = t[i]              
+          }
+      }
+  }
+
+
+
+
+
   for (var i = 0; i < elemento.length; i++) {
    		x[i] = elemento[i].latlng;
 	}
