@@ -27,7 +27,7 @@ class Point < ActiveRecord::Base
         #    sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
         #    res = ActiveRecord::Base.connection.execute(sql)
   		#end
-  		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,1,1,1)'
+  		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,"01:01:02",1,1)'
 		res = ActiveRecord::Base.connection.execute(sql)
 
   		res = ActiveRecord::Base.connection.execute('commit')
