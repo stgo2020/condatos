@@ -23,16 +23,17 @@ class Point < ActiveRecord::Base
 		res = ActiveRecord::Base.connection.execute('begin')
   		CSV.foreach(file.path, headers: true) do |row|
         #inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
-        sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES (40, -33.40047,-70.6301, $4 , "2015-07-16 15:32:37.751685", "2015-07-16 15:32:37.751685")'
+        sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
+
 
         #    sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
-        #    res = ActiveRecord::Base.connection.execute(sql)
+        res = ActiveRecord::Base.connection.execute(sql)
+    	
     	end
- # 		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,"01:01:02",1,1)'
-		sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
+		#sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
 
 		
-		res = ActiveRecord::Base.connection.execute(sql)
+		#res = ActiveRecord::Base.connection.execute(sql)
 
   		res = ActiveRecord::Base.connection.execute('commit')
 
