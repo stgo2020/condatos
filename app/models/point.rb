@@ -14,7 +14,7 @@ class Point < ActiveRecord::Base
 		id_punto = point.id
 		id = point.track_id
 		id = id.to_s
-		point = Point.destroy(id_punto)
+		#point = Point.destroy(id_punto)
 
     	inserts = ''
         created_at = Time.now.strftime("%Y-%m-%d")
