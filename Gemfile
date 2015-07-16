@@ -6,6 +6,7 @@ gem 'rails_12factor'
 
 gem 'rails_admin' 
 
+gem 'smarter_csv'
 
 gem 'ruby'
 # Use sqlite3 as the database for Active Record
