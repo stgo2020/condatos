@@ -21,12 +21,15 @@ class Point < ActiveRecord::Base
         updated_at = Time.now.strftime("%H:%M:%S")
 
 		res = ActiveRecord::Base.connection.execute('begin')
-  		CSV.foreach(file.path, headers: true) do |row|
-        inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
+  		#CSV.foreach(file.path, headers: true) do |row|
+        #inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
 
-            sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
-            res = ActiveRecord::Base.connection.execute(sql)
-  		end
+        #    sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
+        #    res = ActiveRecord::Base.connection.execute(sql)
+  		#end
+  		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,1,1,1)'
+		res = ActiveRecord::Base.connection.execute(sql)
+
   		res = ActiveRecord::Base.connection.execute('commit')
 
  	end
