@@ -9,12 +9,12 @@ class Point < ActiveRecord::Base
     	#id = ActiveRecord::Base.connection.execute('lastval') # Esta linea es la clave
     	
 		
-#		point = Point.new
-#		point.save!
-#		id_punto = point.id
-#		id = point.track_id
-#		id = id.to_s
-		#point = Point.destroy(id_punto)
+		point = Point.new
+		point.save!
+		id_punto = point.id
+		id = point.track_id
+		id = id.to_s
+		point = Point.destroy(id_punto)
 
    # 	inserts = ''
   #      created_at = Time.now.strftime("%Y-%m-%d")
@@ -23,7 +23,7 @@ class Point < ActiveRecord::Base
 		res = ActiveRecord::Base.connection.execute('begin')
   		CSV.foreach(file.path, headers: true) do |row|
         #inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
-        sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
+        sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (" + id + ", -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
 
 
         #    sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
@@ -31,8 +31,6 @@ class Point < ActiveRecord::Base
     	
     	end
 		#sql = "INSERT INTO points (track_id, latitud, longitud, tiempo, created_at, updated_at) VALUES (63, -33.40047,-70.6301, '2015-07-16 15:32:37.751685' , '2015-07-16 15:32:37.751685', '2015-07-16 15:32:37.751685')"
-
-		
 		#res = ActiveRecord::Base.connection.execute(sql)
 
   		res = ActiveRecord::Base.connection.execute('commit')
