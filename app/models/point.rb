@@ -35,8 +35,8 @@ class Point < ActiveRecord::Base
 # 	end
 def self.import(file)
 res = ActiveRecord::Base.connection.execute('begin')
-res = ActiveRecord::Base.connection.execute(sql)
 sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["track_id", 63], ["latitud", -33.40047], ["longitud", -70.6301066667], ["tiempo", "2000-01-01 12:03:23.000000"], ["created_at", "2015-07-16 15:32:37.751685"], ["updated_at", "2015-07-16 15:32:37.751685"]]'
+res = ActiveRecord::Base.connection.execute(sql)
 res = ActiveRecord::Base.connection.execute('commit')
 end
 
