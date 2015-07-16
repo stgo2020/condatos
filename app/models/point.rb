@@ -4,7 +4,7 @@ class Point < ActiveRecord::Base
   
   belongs_to :track
 
-    def self.import(file)
+    #def self.import(file)
 
     	#id = ActiveRecord::Base.connection.execute('lastval') # Esta linea es la clave
     	
@@ -16,24 +16,30 @@ class Point < ActiveRecord::Base
 #		id = id.to_s
 		#point = Point.destroy(id_punto)
 
-    	inserts = ''
-        created_at = Time.now.strftime("%Y-%m-%d")
-        updated_at = Time.now.strftime("%H:%M:%S")
+   # 	inserts = ''
+  #      created_at = Time.now.strftime("%Y-%m-%d")
+ #       updated_at = Time.now.strftime("%H:%M:%S")
 
-		res = ActiveRecord::Base.connection.execute('begin')
+#		res = ActiveRecord::Base.connection.execute('begin')
   		#CSV.foreach(file.path, headers: true) do |row|
         #inserts = '(63' + ',' + row[0] + ',' + row[1] + ',' + '"' + row[2] + '"' + ',' + '"' + created_at + '"' + ',' + "'" + updated_at + "'" + ')'
 
         #    sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES ' + inserts
         #    res = ActiveRecord::Base.connection.execute(sql)
   		#end
-  		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,"01:01:02",1,1)'
-		res = ActiveRecord::Base.connection.execute(sql)
+ # 		sql = 'INSERT INTO "points" ("track_id", "latitud", "longitud", "tiempo", "created_at", "updated_at") VALUES  (63,33,33,"01:01:02",1,1)'
+#		res = ActiveRecord::Base.connection.execute(sql)
 
-  		res = ActiveRecord::Base.connection.execute('commit')
+ # 		res = ActiveRecord::Base.connection.execute('commit')
 
- 	end
+# 	end
 
+
+    def self.import(file)
+  		CSV.foreach(file.path, headers: true) do |row|
+  			Point.create! row.to_hash
+		end
+	end
 
  	def latlng
 		[self.latitud,self.longitud]
