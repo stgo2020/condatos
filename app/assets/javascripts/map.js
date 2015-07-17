@@ -14,7 +14,7 @@
       x[i] = elemento[i].latlng;
   }
 
-
+///////////////////////////////////// Ordenar el arreglo CSV por fecha, en caso de venir desordenado ////////////////////////////////////
 
   for (var i = 0; i < elemento.length; i++) {         // Obtengo elemento tiempo
       t[i] = elemento[i].tiempo;
@@ -24,16 +24,16 @@
   t1[0] = t[0];                                       // Inicializacion de fecha -- Cambiar a t[length-1] para subir a heroku
   
   for (var i = 0; i < t.length-1; i++) {  
-    if (t[i] < t[0]){ 
+    if (t[i] < t1[0]){ 
       t1[0] = t[i];
     }
   }
 
 
-  t1[1] = "2020-20-01T20:00:00.000Z";                 // Fecha de Orden mayor virtualmente infinito
-  for (var i = 0; i < t.length-1; i++) {                // Revision del vector t original
+  t1[1] = "2020-20-01T20:00:00.000Z";                  // Fecha de Orden mayor virtualmente infinito
+  for (var i = 0; i < t.length-1; i++) {               // Revision del vector t original
       
-      for(var j = 0; j < t.length; j++){              // Revision de vector t1, modificado
+      for(var j = 0; j < t.length; j++){               // Revision de vector t1, modificado
 
           if(t[i] > t1[j]   &   t[i] < t1[j+1]) {
     
