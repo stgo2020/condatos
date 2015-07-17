@@ -7,34 +7,48 @@
 	x  = new Array(elemento.length);                     // Arreglo x mantiene todas las coordenadas del metodo latlng 
 	t  = new Array(elemento.length);
   t1 = new Array(elemento.length);
+  xf = new Array(1);
+
+
+  for (var i = 0; i < elemento.length; i++) {
+      x[i] = elemento[i].latlng;
+  }
+
+
 
   for (var i = 0; i < elemento.length; i++) {         // Obtengo elemento tiempo
       t[i] = elemento[i].tiempo;
   }
 
-  t1[0] = t[0];                                       // Inicializacion de fecha
+
+  t1[0] = t[0];                                       // Inicializacion de fecha -- Cambiar a t[length-1] para subir a heroku
+  
+  for (var i = 0; i < t.length-1; i++) {  
+    if (t[i] < t[0]){ 
+      t[0] = t[i];
+    }
+  }
+
+
   t1[1] = "2020-20-01T20:00:00.000Z";                 // Fecha de Orden mayor virtualmente infinito
-  for (var i = 0; i < t.length; i++) {                // Revision del vector t original
+  for (var i = 0; i < t.length-1; i++) {                // Revision del vector t original
       
       for(var j = 0; j < t.length; j++){              // Revision de vector t1, modificado
 
-          if((t[i] > t1[j]) & (t[i] < t1[j+1])){
+          if(t[i] > t1[j]   &   t[i] < t1[j+1]) {
     
-              for(var k = j+1; k < t.length; k++){    // Correr vector desde pos i+1 a la i+2
-                t1[k+1]=t1[k];}
-        
-              t1[j+1] = t[i]              
+              for(var k = t.length-1; k >= j; k--){    // Correr vector desde pos i+1 a la i+2
+                t1[k+1]=t1[k];
+                xf[k+1]=xf[k];
+              }
+              t1[j+1] = t[i]
+              xf[j+1] = x[i];
+              break;              
           }
       }
   }
 
-
-
-
-
-  for (var i = 0; i < elemento.length; i++) {
-   		x[i] = elemento[i].latlng;
-	}
+ xf = xf.filter(function(n){ return n != undefined }); // Eliminar elementos nulos
 
 ///////////////////////////////// Calculo de Centroide del Mapa //////////////////////////////////////////////
 
@@ -68,7 +82,7 @@
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
 
-  L.polyline(x, polyline_options).addTo(map);
+  L.polyline(xf, polyline_options).addTo(map);
 
 
   L.mapbox.featureLayer({
@@ -140,7 +154,7 @@
     "properties": {},
     "geometry": {
       "type": "LineString",
-      "coordinates": x
+      "coordinates": xf
     }
   };
 
