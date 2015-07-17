@@ -29,12 +29,9 @@
     }
   }
 
-
   t1[1] = "2020-20-01T20:00:00.000Z";                  // Fecha de Orden mayor virtualmente infinito
   for (var i = 0; i < t.length-1; i++) {               // Revision del vector t original
-      
       for(var j = 0; j < t.length; j++){               // Revision de vector t1, modificado
-
           if(t[i] > t1[j]   &   t[i] < t1[j+1]) {
     
               for(var k = t.length-1; k >= j; k--){    // Correr vector desde pos i+1 a la i+2
@@ -44,19 +41,9 @@
               t1[j+1] = t[i]
               xf[j+1] = x[i];
               break;              
-          }
-      }
-  }
+          }}}
 
- xf[0] = null;
- xf[1] = null;
- xf[2] = null;
- xf[3] = null;
- xf[xf.length-1] = null;
- xf[xf.length-2] = null;
- xf[xf.length-3] = null;
- xf[xf.length] = null;  
- xf = xf.filter(function(n){ return n != undefined }); // Eliminar elementos nulos
+ xf = xf.filter(function(n){ return n != undefined });  // Eliminar elementos nulos
 
 ///////////////////////////////// Calculo de Centroide del Mapa //////////////////////////////////////////////
 
@@ -89,7 +76,7 @@
 
   var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([lat_center, lon_center], 12);
-//L.control.fullscreen().addTo(map);
+  L.control.fullscreen().addTo(map);
   L.polyline(xf, polyline_options).addTo(map);
 
 
@@ -98,8 +85,8 @@
     geometry: {
         type: 'Point',
         coordinates: [
-          x[0][1],                               // En GeoJSON se ocupa longitud en primer lugar 
-          x[0][0]                                // latitud en segundo lugar
+          xf[0][1],                               // En GeoJSON se ocupa longitud en primer lugar 
+          xf[0][0]                                // latitud en segundo lugar
         ]
     },
     properties: {
@@ -118,8 +105,8 @@
     geometry: {
         type: 'Point',
         coordinates: [
-          x[x.length - 1][1],                               // En GeoJSON se ocupa longitud en primer lugar 
-          x[x.length - 1][0]                                // latitud en segundo lugar
+          xf[xf.length - 1][1],                               // En GeoJSON se ocupa longitud en primer lugar 
+          xf[xf.length - 1][0]                                // latitud en segundo lugar
         ]
     },
     properties: {
