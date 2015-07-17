@@ -48,6 +48,7 @@
       }
   }
 
+ xf[xf.length-1] = null  
  xf = xf.filter(function(n){ return n != undefined }); // Eliminar elementos nulos
 
 ///////////////////////////////// Calculo de Centroide del Mapa //////////////////////////////////////////////
