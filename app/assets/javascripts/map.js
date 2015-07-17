@@ -25,7 +25,7 @@
   
   for (var i = 0; i < t.length-1; i++) {  
     if (t[i] < t[0]){ 
-      t[0] = t[i];
+      t1[0] = t[i];
     }
   }
 
