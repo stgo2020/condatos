@@ -8,7 +8,15 @@ gem 'rails_admin'
 
 gem 'smarter_csv'
 
+gem 'devise'
+
+gem 'cancan'
+
 gem 'ruby'
+
+gem 'haml'
+gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'simple_form'
 # Use sqlite3 as the database for Active Record
 group :production do
 	gem 'pg'

@@ -16,7 +16,7 @@
 
 
   <tbody>
-    <% @tracks.each do |track| %>
+    <% @tracks.accessible_by(current_ability).each do |track| %>
       <tr>
         <td><%= track.name %></td>
         <td><%= track.fecha %></td>

@@ -7,6 +7,11 @@
 <html>
 <head>
   <title>Test1</title>
+
+   <td><%=  current_user.email %></td>
+
+  <td><%= link_to 'logout', destroy_user_session_path, method: :delete %></td>
+
   <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

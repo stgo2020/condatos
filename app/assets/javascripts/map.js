@@ -143,6 +143,7 @@
 
 
 ////////////////////// Calculo de distancia Recorrida y Velocidad Media /////////////////////////////////////
+////////////////////// Huella de Carbono
 
   var polylinea = {                                     // Linea en formato GeoJSON 
     "type": "Feature",                                  // Necesaria para ocupar Libreria turf 
@@ -157,7 +158,10 @@
   length = turf.lineDistance(polylinea, 'kilometers');  // Determina el largo del recorrido
 
   velocidad = parseInt(length)*3600/Math.abs(tiempo_segundos);    // Determina velocidad en km/hr
-  count.innerHTML = '<label>Distancia Total</label>' + length.toFixed(2) + ' km' + '<br><br><label>Tiempo Total</label>' + horas_total + ':' + minutos_total + ':' + segundos_total + '<br><br><label>Velocidad Promedio</label>' + velocidad.toFixed(2) + ' km/hora';
+
+  CO2 = parseInt(length)*0.9
+
+  count.innerHTML = '<label>Distancia Total</label>' + length.toFixed(2) + ' km' + '<br><br><label>Tiempo Total</label>' + horas_total + ':' + minutos_total + ':' + segundos_total + '<br><br><label>Velocidad Promedio</label>' + velocidad.toFixed(2) + ' km/hora' + '<br><br><label>  Carbono Ahorrado </label>' + CO2 +' kg de CO2' ;
 
 
 	});

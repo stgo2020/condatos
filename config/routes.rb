@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'pages/home'
+
+  get 'pages/about'
+
+  devise_for :users
   resources :tracks do
     resources :points do
       collection { post :import }
