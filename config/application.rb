@@ -33,6 +33,5 @@ module Test1
         :authentication => 'login',
         :enable_starttls_auto => true
     }
-
   end
 end
