@@ -22,5 +22,17 @@ module Test1
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    ActionMailer::Base.smtp_settings = {
+ 
+        :address        => 'smtp.gmail.com',
+        :domain         => 'mail.google.com',
+        :port           => 587,
+        :user_name      => "rubi.01.bot@gmail.com", #ENV['GMAIL_USERNAME'],
+        :password       => "stgo2020238", #ENV['GMAIL_PASSWORD'],
+        :authentication => 'login',
+        :enable_starttls_auto => true
+    }
+
   end
 end
