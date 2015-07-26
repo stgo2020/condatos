@@ -6,8 +6,10 @@
 div#map {
 position:relative;
 top:0px;
-left:0px;
+left:30px;
 //margin: 150px 0px; // desde arriba - desde la derecha
-height: 60%;
-width: 73%;
+height: 50%;
+width: 60%;
+overflow:hidden;
+border-radius: 15px 50px 30px 5px;
 }

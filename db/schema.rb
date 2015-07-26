@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717233401) do
+ActiveRecord::Schema.define(version: 20150726025009) do
 
   create_table "points", force: :cascade do |t|
     t.float    "latitud"
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20150717233401) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.datetime "tiempo"
+    t.float    "distancia"
+    t.float    "destino"
+    t.float    "origenlat"
+    t.float    "origenlon"
+    t.float    "destinolon"
+    t.float    "destinolat"
+    t.float    "velocidad"
   end
 
   create_table "users", force: :cascade do |t|

@@ -15,7 +15,10 @@ gem 'cancan'
 gem 'ruby'
 
 gem 'haml'
-gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
+
+gem 'sprockets'
+
 gem 'simple_form'
 # Use sqlite3 as the database for Active Record
 group :production do

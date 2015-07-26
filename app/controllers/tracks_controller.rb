@@ -7,6 +7,10 @@ class TracksController < ApplicationController
   def index
     @tracks = Track.all
     #authorize! :read, @track
+     respond_to do |format|
+      format.html # show.html.erb
+            format.json { render :json => @tracks.to_json(:methods => [:props], :only => [:props])}
+    end
   end
 
   # GET /tracks/1

@@ -1,50 +1,96 @@
+<title><%= @track.name %> - <%= @track.fecha %></title>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Recorrido:</strong>
-  <%= @track.name %>
-</p>
 
 <p>
-  <strong>Fecha:</strong>
-  <%= @track.fecha %>  
-</p>
 
-<p>
+<br></br>
+<br></br>
+
+<div class="panel panel-success">
+  <div class="panel-heading" ><strong><%= @track.name %></strong>
+    <button class="btn1" type="button"><%= link_to 'Editar', edit_track_path(@track) %></button>
+    <button class="btn2" type="button"><%= link_to 'Subir', track_points_path(@track) %> </button>
+  </div>
+    <div class="panel-body">
+
+<table class="table">
+    <thead>
+    <tr>
+      <th>Distancia</th>
+      <th>Tiempo</th>
+      <th>Velocidad</th>
+      <th>Fecha </th>
+      <th>Ambiente</th>
+    </tr>
+     </thead>
+    <tbody>
+    <tr>
+      <th><div id='distancia'></div></th>
+      <th><div id='tiempo'></div></th>
+      <th><div id='velocidad'></div></th>
+      <th><%= @track.fecha %></th>
+      <th><div id='aporte'></div></th>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+
+
 
 <style>
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
 
+
 <style>
- .ui-control {
+
+.table{
+  text-align: center;
+}
+
+.btn1{
+    position:absolute;
+    font-size: 100%;
+    width: 10%;
+    margin-left:400px;
+}
+
+.btn2{
+    position:absolute;
+    font-size: 100%;
+    width: 10%;
+    margin-left:480px;
+}
+
+
+.panel-body {
   font:bold 12px/20px 'Helvetica', sans-serif;
-  background:#404040;
-  color:#fff;
-  position:absolute;
-  top:0;right:0;bottom:0;
-  z-index:100;
-  width:25%;
-  padding:10px;
-  }
-  .ui-control label {
-    text-transform:uppercase;
-    display:block;
-    font-weight:bold;
-    color:rgba(255,255,255,0.5);
-    margin-bottom:5px;
-    }
-  .ui-control strong {
-    font-size:32px;
-    line-height:38px;
-    }
+  text-align: justify;
+  background:#ffffff;
+  color:#000;
+}
+
+.panel {
+  margin-left:100px;
+  position: relative;
+  left: 30px;
+  //padding-left: 60px;
+  width: 43%;
+  //@include gradient-horizontal(#1834cc, #1dc937, 0%, 100%);
+}
+
 </style>
+
+<br></br>
 
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
 <div id='map' class=dark></div>
-<div id='count' class='ui-control'></div>
 <script>
 
 var polyline_options = {  // caracteristicas de la polylinea dibujada
@@ -54,11 +100,6 @@ var polyline_options = {  // caracteristicas de la polylinea dibujada
 </script>
 
 
-<%= link_to 'Cambiar Nombre', edit_track_path(@track) %>
-
-<%= link_to 'Agregar Puntos', track_points_path(@track) %> 
-
-<%= link_to 'Volver a Recorridos', tracks_path %> 
 
 
 <!--  <%= link_to 'Edit', edit_track_path(@track) %> |

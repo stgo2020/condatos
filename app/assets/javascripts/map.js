@@ -154,14 +154,22 @@
     }
   };
 
-  var count = document.getElementById('count');
+
+  var distancia_HTML = document.getElementById('distancia');
+  var tiempo_HTML    = document.getElementById('tiempo');
+  var velocidad_HTML = document.getElementById('velocidad');
+  var aporte_HTML    = document.getElementById('aporte');
+
+
   length = turf.lineDistance(polylinea, 'kilometers');  // Determina el largo del recorrido
 
   velocidad = parseInt(length)*3600/Math.abs(tiempo_segundos);    // Determina velocidad en km/hr
 
   CO2 = parseInt(length)*0.9
 
-  count.innerHTML = '<label>Distancia Total</label>' + length.toFixed(2) + ' km' + '<br><br><label>Tiempo Total</label>' + horas_total + ':' + minutos_total + ':' + segundos_total + '<br><br><label>Velocidad Promedio</label>' + velocidad.toFixed(2) + ' km/hora' + '<br><br><label>  Carbono Ahorrado </label>' + CO2 +' kg de CO2' ;
-
+  distancia_HTML.innerHTML = length.toFixed(2) + ' km';
+  tiempo_HTML.innerHTML = horas_total + ':' + minutos_total + ':' + segundos_total;
+  velocidad_HTML.innerHTML  = velocidad.toFixed(2) + ' km/hr';
+  aporte_HTML.innerHTML  = CO2.toFixed(2) + ' kg CO2 ahorrados';
 
 	});

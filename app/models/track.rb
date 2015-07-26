@@ -6,6 +6,10 @@ class Track < ActiveRecord::Base
 	validates_presence_of :name
 	accepts_nested_attributes_for :points
 	
+ 	def props
+		[self.tiempo,self.velocidad,self.distancia]
+ 	end
+
 
 end
 
