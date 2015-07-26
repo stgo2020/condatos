@@ -55,7 +55,7 @@ class Point < ActiveRecord::Base
 
       ################################# Ingreso las coordenadas del principio y fin #################   
       con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET origenlat = '" + lat_i + "'' WHERE id = " + id    
+      sql = "UPDATE tracks SET origenlat = '" + lat_i + "' WHERE id = " + id    
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       con = ActiveRecord::Base.connection.execute('begin')
