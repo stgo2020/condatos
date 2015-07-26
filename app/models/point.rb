@@ -59,15 +59,15 @@ class Point < ActiveRecord::Base
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET origenlon = " + lon_i + " WHERE id is " + id  
+      sql = "UPDATE tracks SET origenlon = " + lon_i + " WHERE id is " + "'" + id "'"   
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET destinolat = " + lat_f + " WHERE id is  " + id  
+      sql = "UPDATE tracks SET destinolat = " + lat_f + " WHERE id is  " + "'" + id "'"    
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET destinolon = " + lon_f + " WHERE id is " + id 
+      sql = "UPDATE tracks SET destinolon = " + lon_f + " WHERE id is " + "'" + id "'"   
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       ######################################## Transformamos el tiempo ###############################   
