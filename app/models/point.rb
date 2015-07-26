@@ -81,7 +81,7 @@ class Point < ActiveRecord::Base
       hor_f = (tiempo_f[0].to_i)*3600
       tiempo_total = (seg_i + min_i + hor_i - seg_f - min_f - hor_f).abs
       con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET tiempo = '" + tiempo_total.to_s + "' WHERE id = "  + id
+      sql = "UPDATE tracks SET tiempo = " + tiempo_total.to_s + " WHERE id = "  + id
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
       ############################################ Obtener la velocidad ###############################
