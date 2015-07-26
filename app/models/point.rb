@@ -53,47 +53,6 @@ class Point < ActiveRecord::Base
 
       res = ActiveRecord::Base.connection.execute('commit')
 
-      ################################# Ingreso las coordenadas del principio y fin #################   
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET origenlat = " + lat_i + " WHERE id is " + "'" + id "'"  
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET origenlon = " + lon_i + " WHERE id is " + "'" + id "'"   
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET destinolat = " + lat_f + " WHERE id is  " + "'" + id "'"    
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET destinolon = " + lon_f + " WHERE id is " + "'" + id "'"   
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      ######################################## Transformamos el tiempo ###############################   
-      tiempo_i = tiempo_0.split(':')   
-      seg_i = (tiempo_i[2].to_i)
-      min_i = (tiempo_i[1].to_i)*60
-      hor_i = (tiempo_i[0].to_i)*3600
-      tiempo_f = tiempo_1.split(':')
-      seg_f = (tiempo_f[2].to_i)
-      min_f = (tiempo_f[1].to_i)*60
-      hor_f = (tiempo_f[0].to_i)*3600
-      tiempo_total = (seg_i + min_i + hor_i - seg_f - min_f - hor_f).abs
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET tiempo = " + tiempo_total.to_s + " WHERE id is "  + id
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      ############################################ Obtener la velocidad ###############################
-      velocidad = distancia*3600/tiempo_total
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET velocidad = " + velocidad.to_s + " WHERE id is "  + id
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
-      con = ActiveRecord::Base.connection.execute('begin')
-      sql = "UPDATE tracks SET distancia = " + distancia.to_s + " WHERE id is "  + id
-      con = ActiveRecord::Base.connection.execute(sql)
-      res = ActiveRecord::Base.connection.execute('commit')
 
  	end
 
