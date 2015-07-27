@@ -14,6 +14,10 @@ gem 'cancan'
 
 gem 'ruby'
 
+gem 'amcharts.rb'
+
+
+
 gem 'haml'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 

@@ -9,6 +9,9 @@
     <tr>
       <th>Recorrido</th>
       <th>Fecha</th>
+      <th>Distancia</th>
+      <th>Tiempo</th>
+      <th>Velocidad</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,15 +21,30 @@
     <% @tracks.accessible_by(current_ability).each do |track| %>
       <tr>
         <td><%= track.name %></td>
-        <td><%= track.fecha %></td>
-        <td><button class="btn " type="button"><%= link_to 'Ver', track_path(track) %></button></td>
-        <td><button class="btn " type="button"><%= link_to 'Subir Archivo', track_points_path(track) %><td>
-        <td><button class="btn " type="button"><%= link_to 'Nombrar',  edit_track_path(track) %></td> 
-        <td><%= link_to 'Eliminar', track, method: :delete, data: { confirm: '¿Estás Seguro?' } %></td>
+        <td><%= track.fecha%></td>
+        <td><%= track.distancia %> km</td>
+        <td><%= track.tiempo %> s</td>
+        <td><%= track.velocidad %> km/hr</td>
+        <td><%= link_to image_tag("ver.png",    :alt => "rss feed", size: "25") , track_path(track) %></td>
+        <td><%= link_to image_tag("upload.png", :alt => "rss feed", size: "25") , track_points_path(track) %><td>
+        <td><%= link_to image_tag("editar.png", :alt => "rss feed", size: "25") ,  edit_track_path(track) %></td> 
+        <td><%= link_to image_tag("Basura.png", :alt => "rss feed", size: "25") , track, method: :delete, data: { confirm: '¿Estás Seguro?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 
+<style>
 
+.table{
+  text-align: left;
+  width: 65%;
+}
+
+.btn{
+    font-size: 75%;
+    width: 100%;
+}
+
+</style>

@@ -86,6 +86,8 @@ class Point < ActiveRecord::Base
       res = ActiveRecord::Base.connection.execute('commit')
       ############################################ Obtener la velocidad ###############################
       velocidad = distancia*3600/tiempo_total
+      distancia = distancia.round(2)
+      velocidad = velocidad.round(2)
       con = ActiveRecord::Base.connection.execute('begin')
       sql = "UPDATE tracks SET velocidad = '" + velocidad.to_s + "' WHERE id = "  + id
       con = ActiveRecord::Base.connection.execute(sql)
@@ -94,7 +96,6 @@ class Point < ActiveRecord::Base
       sql = "UPDATE tracks SET distancia = '" + distancia.to_s + "' WHERE id = "  + id
       con = ActiveRecord::Base.connection.execute(sql)
       res = ActiveRecord::Base.connection.execute('commit')
-
  	end
 
 

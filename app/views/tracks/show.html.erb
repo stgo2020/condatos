@@ -1,14 +1,13 @@
 <title><%= @track.name %> - <%= @track.fecha %></title>
-
+<meta charset=utf-8 />
 <p id="notice"><%= notice %></p>
-
 
 <p>
 
 <br></br>
 <br></br>
 
-<div class="panel panel-success">
+<div class="panel panel-default">
   <div class="panel-heading" ><strong><%= @track.name %></strong>
     <button class="btn1" type="button"><%= link_to 'Editar', edit_track_path(@track) %></button>
     <button class="btn2" type="button"><%= link_to 'Subir', track_points_path(@track) %> </button>
@@ -40,14 +39,26 @@
 
 
 
-
 <style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
 
+body { 
+  margin:0; 
+  padding:0; 
+}
 
-<style>
+#info{
+  position:absolute;
+  margin-left: 3%;
+  width: 45%;
+  height:250px;
+}
+
+#map { 
+  position:absolute; 
+  top:0; 
+  bottom:0; 
+  width:100%; 
+}
 
 .table{
   text-align: center;
@@ -76,12 +87,12 @@
 }
 
 .panel {
-  margin-left:100px;
+  margin-left:2%;
   position: relative;
   left: 30px;
-  //padding-left: 60px;
   width: 43%;
   //@include gradient-horizontal(#1834cc, #1dc937, 0%, 100%);
+
 }
 
 </style>
@@ -91,16 +102,13 @@
 <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/Leaflet.fullscreen.min.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.4/leaflet.fullscreen.css' rel='stylesheet' />
 <div id='map' class=dark></div>
+<div id='info' class=dark></div>
 <script>
-
-var polyline_options = {  // caracteristicas de la polylinea dibujada
-    color: '#ff0000'
-};
-
+    var polyline_options = {  // caracteristicas de la polylinea dibujada
+       color: '#ff0000'
+    };
 </script>
 
 
 
 
-<!--  <%= link_to 'Edit', edit_track_path(@track) %> |
-<%= link_to 'Back', tracks_path %> -->

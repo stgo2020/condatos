@@ -44,6 +44,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    amcharts.rb (3.11.2.14)
+      collection_of (>= 1.0.3)
+      rails (> 3.0.0)
     arel (6.0.2)
     autoprefixer-rails (5.2.1.1)
       execjs
@@ -60,6 +63,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    collection_of (1.0.5)
+      activesupport (>= 3.0.0)
     columnize (0.9.0)
     debug_inspector (0.0.2)
     debugger (1.6.8)
@@ -229,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amcharts.rb
   bootstrap-sass!
   cancan
   coffee-rails (~> 4.1.0)
