@@ -215,7 +215,9 @@
   icon: L.mapbox.marker.icon({
     'marker-size': 'medium',                 // https://www.mapbox.com/guides/an-open-platform/#simplestyle
     'marker-color': '#3885d4',
-    'marker-symbol': 'bicycle'
+    'marker-symbol': 'bicycle',
+    'title' : 'viaje',
+    'riseOnHover' : true
   })
 }).addTo(map);
 
@@ -227,13 +229,10 @@ new Morris.Line({
   xkey: ['time'],                     // Eje X
   ykeys: ['speed'],                   // eje Y
   labels: ['Velocidad [km/hr]'],      // Titulos de Ejes
-  continuousLine: 'true',
   pointSize: 0,
-  }).on("click", function(i){
+  }).on( "click", function(i){
       marker.setLatLng(L.latLng(xf[i][0],xf[i][1]));          // Mostrar marcador
       console.log(i)
   });
-
-
 
 });
