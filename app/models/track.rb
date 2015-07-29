@@ -10,6 +10,9 @@ class Track < ActiveRecord::Base
 		[self.tiempo,self.velocidad,self.distancia]
  	end
 
+ 	def stats
+		[self.fecha]
+ 	end
 
 end
 

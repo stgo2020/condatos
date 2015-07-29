@@ -211,9 +211,9 @@
 
 //////////////////////////////// Interaccion con Mapa ////////////////////////////////////////////////////
 
-  var marker =  L.marker([0, 0], {     // Marcador viajero
+  var marker =  L.marker([0, 0], {    // Marcador viajero
   icon: L.mapbox.marker.icon({
-    'marker-size': 'medium',                 // https://www.mapbox.com/guides/an-open-platform/#simplestyle
+    'marker-size': 'medium',          // https://www.mapbox.com/guides/an-open-platform/#simplestyle
     'marker-color': '#3885d4',
     'marker-symbol': 'bicycle',
     'title' : 'viaje',

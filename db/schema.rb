@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726073357) do
+ActiveRecord::Schema.define(version: 20150728042916) do
 
   create_table "points", force: :cascade do |t|
     t.float    "latitud"
@@ -56,6 +56,11 @@ ActiveRecord::Schema.define(version: 20150726073357) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "nombre"
+    t.string   "apellido"
+    t.date     "nacimiento"
+    t.boolean  "genero"
+    t.integer  "sexo"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

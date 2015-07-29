@@ -9,7 +9,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><%= image_tag("rubi.png", :alt => "rss feed", size: "28")%></li></a>
+      <a class="navbar-brand" href="#"><%= image_tag("diamond-icon.png", :alt => "rss feed", size: "28")%></li></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,20 +23,19 @@
         <li><a href="#"><%= current_user.email %></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          <%= image_tag("apagar.png", :alt => "rss feed", size: "25") %>
+          <%= image_tag("menu.png", :alt => "rss feed", size: "25") %>
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %></a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Ayuda</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Contacto</a></li>
+            <li><%= link_to 'Perfil', edit_user_path(current_user.id) %></li>
             <li role="separator" class="divider"></li>
             <li><a href="http://www.stgo2020.cl">Stgo 2020</a></li>
+            <li role="separator" class="divider"></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to image_tag("apagar.png", :alt => "rss feed", size: "20") + " Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
           </ul>
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-

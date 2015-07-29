@@ -5,6 +5,11 @@ Rails.application.routes.draw do
   get 'pages/about'
 
   devise_for :users
+
+  resources :users do
+    resources :user 
+  end
+
   resources :tracks do
     resources :points do
       collection { post :import }

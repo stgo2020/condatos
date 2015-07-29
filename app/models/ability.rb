@@ -4,6 +4,7 @@ class Ability
     def initialize(user)
 
         can :manage, Track, user_id: user.id
+        can :manage, user
 
     end
 end
