@@ -14,14 +14,12 @@ gem 'cancan'
 
 gem 'ruby'
 
-gem 'amcharts.rb'
-
-
+#gem 'amcharts.rb'
 
 gem 'haml'
 gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
-gem 'sprockets'
+#gem 'sprockets'
 
 gem 'simple_form'
 # Use sqlite3 as the database for Active Record
