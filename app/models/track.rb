@@ -7,11 +7,7 @@ class Track < ActiveRecord::Base
 	accepts_nested_attributes_for :points
 	
  	def props
-		[self.tiempo,self.velocidad,self.distancia]
- 	end
-
- 	def stats
-		[self.fecha]
+		[user.id,self.fecha,self.tiempo,self.velocidad,self.distancia]
  	end
 
 end

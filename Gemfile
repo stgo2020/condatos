@@ -14,6 +14,8 @@ gem 'cancan'
 
 gem 'ruby'
 
+gem 'geocoder'
+
 #gem 'amcharts.rb'
 
 gem 'haml'

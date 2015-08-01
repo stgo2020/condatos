@@ -6,7 +6,9 @@ class TracksController < ApplicationController
   # GET /tracks.json
   def index
     @tracks = Track.all
-    #authorize! :read, @track
+    #authorize! :read, @tracks
+    gon.user_number = current_user.id
+
      respond_to do |format|
       format.html # show.html.erb
             format.json { render :json => @tracks.to_json(:methods => [:props], :only => [:props])}
@@ -63,7 +65,7 @@ class TracksController < ApplicationController
     authorize! :update, @track
     respond_to do |format|
       if @track.update(track_params)
-        format.html { redirect_to @track, notice: 'Track was successfully updated.' }
+        format.html { redirect_to tracks_url, notice: 'Track was successfully updated.' }
         format.json { render :show, status: :ok, location: @track }
       else
         format.html { render :edit }

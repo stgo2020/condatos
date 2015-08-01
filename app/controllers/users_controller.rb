@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def show
         @user = User.find(params[:id])
         authorize! :show, @user
+        gon.user_number = current_user.id
   end
 
   # GET /users/new

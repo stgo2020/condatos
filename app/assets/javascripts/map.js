@@ -205,9 +205,9 @@
   CO2 = parseInt(length)*0.9
 
   distancia_HTML.innerHTML = length.toFixed(2) + ' km';
-  tiempo_HTML.innerHTML = horas_total + ':' + minutos_total + ':' + segundos_total;
-  velocidad_HTML.innerHTML  = velocidad.toFixed(2) + ' km/hr';
-  aporte_HTML.innerHTML  = CO2.toFixed(2) + ' kg CO2 ahorrados';
+  tiempo_HTML.innerHTML    = horas_total + ':' + minutos_total + ':' + segundos_total;
+  velocidad_HTML.innerHTML = velocidad.toFixed(2) + ' km/hr';
+  aporte_HTML.innerHTML    = CO2.toFixed(2) + ' kg CO2 ahorrados';
 
 //////////////////////////////// Interaccion con Mapa ////////////////////////////////////////////////////
 
@@ -233,6 +233,6 @@ new Morris.Line({
   }).on( "click", function(i){
       marker.setLatLng(L.latLng(xf[i][0],xf[i][1]));          // Mostrar marcador
       console.log(i)
-  });
+  }).resize(function() { redoTheChartFunction();}) ;
 
 });

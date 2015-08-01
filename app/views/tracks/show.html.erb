@@ -13,8 +13,8 @@
       <strong><%= @track.name %></strong>
       <div class="botones">
         <div align="right">
-        <%= link_to image_tag("editar.png", :alt => "rss feed", size: "25") ,  edit_track_path(@track) %>
-        <%= link_to image_tag("upload.png", :alt => "rss feed", size: "25") , track_points_path(@track) %>
+        <%= link_to image_tag("editar.png", :alt => "rss feed", size: "20") ,  edit_track_path(@track) %>
+        <%= link_to image_tag("upload.png", :alt => "rss feed", size: "20") , track_points_path(@track) %>
         </div>
       </div>
   </div>
@@ -54,17 +54,18 @@ body {
 }
 
 #info{
-  position:absolute;
+  position:relative;
   margin-left: 3%;
-  width: 45%;
+  width: 630px;
   height:250px;
 }
 
-#map { 
-  position:absolute; 
-  top:0; 
-  bottom:0; 
-  width:100%; 
+#map {
+position:absolute;
+top:90px;
+left:720px;
+height: 500px;
+width: 600px;
 }
 
 .botones{
@@ -87,7 +88,7 @@ body {
   margin-left:2%;
   position: relative;
   left: 30px;
-  width: 43%;
+  width: 600px;
   //@include gradient-horizontal(#1834cc, #1dc937, 0%, 100%);
 
 }

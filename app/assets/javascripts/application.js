@@ -15,4 +15,5 @@
 //= require jquery_ujs
 //= require raphael
 //= require morris
+//= require clima
 //= require_tree .

@@ -1,0 +1,59 @@
+$(document).ready(function(){ 
+  var coords;
+  $.get("http://ipinfo.io", function(response) {
+    $('span#city').html(response.city);
+    $('span#region').html(response.region);
+  
+  
+ $.getJSON('http://api.wunderground.com/api/496dd7824e51737c/conditions/q/' + response.loc + '.json', function(result) {
+   $('span#temp').html(result.current_observation.temp_c + 'ºC');
+   $('button#degree').click(function(){
+     $(this).text(function(i, text){
+       return text === "F" ? "C" : "F";
+     });
+     // switch between F and C
+     if ($('span#temp').text() == result.current_observation.temp_f) {
+       $('span#temp').html(result.current_observation.temp_c);
+     } else if ($('span#temp').text() == result.current_observation.temp_c) {
+       $('span#temp').html(result.current_observation.temp_f);
+     }
+   });
+   //console.log(result.current_observation);
+
+   imagen_HTML  = document.getElementById('imagen');
+
+   condicion = result.current_observation.icon
+
+   resultado = 0;
+    if (condicion == 'cloudy')      imagen.innerHTML = '<img src="<%= asset_path('nublado.png')%>" height="70" width="70"/>';
+    if (condicion == 'rain')        imagen.innerHTML = '<img src="<%= asset_path('lluvia.png')%>" height="70" width="70"/>';
+    if (condicion == 'clear')       imagen.innerHTML = '<img src="<%= asset_path('sunny.png')%>" height="70" width="70"/>';
+    if (condicion == 'flurries')    imagen.innerHTML = '<img src="<%= asset_path('snow.png')%>" height="70" width="70"/>';
+    if (condicion == 'fog')         imagen.innerHTML = '<img src="<%= asset_path('fog.png')%>" height="70" width="70"/>';
+    if (condicion == 'hazy')        imagen.innerHTML = '<img src="<%= asset_path('fog.png')%>" height="70" width="70"/>';
+    if (condicion == 'mostlycloud') imagen.innerHTML = '<img src="<%= asset_path('cloudy.png')%>" height="70" width="70"/>';
+    if (condicion == 'mostlysunny') imagen.innerHTML = '<img src="<%= asset_path('cloudy.png')%>" height="70" width="70"/>';
+    if (condicion == 'partlycloud') imagen.innerHTML = '<img src="<%= asset_path('cloudy.png')%>" height="70" width="70"/>';
+    if (condicion == 'partlysunny') imagen.innerHTML = '<img src="<%= asset_path('cloudy.png')%>" height="70" width="70"/>';
+    if (condicion == 'sleet')       imagen.innerHTML = '<img src="<%= asset_path('snow.png')%>" height="70" width="70"/>';
+    if (condicion == 'snow')        imagen.innerHTML = '<img src="<%= asset_path('snow.png')%>" height="70" width="70"/>';
+    if (condicion == 'sunny')       imagen.innerHTML = '<img src="<%= asset_path('sunny.png')%>" height="70" width="70"/>';
+    if (condicion == 'tstorms')     imagen.innerHTML = '<img src="<%= asset_path('lluvia.png')%>" height="70" width="70"/>';
+    //$('span#status-text').html(result.current_observation.icon);   
+   $('span#humidity').html('Humedad: ' + result.current_observation.relative_humidity);
+   $('span#wind-gust').html(result.current_observation.wind_gust_mph);
+   $('button#speed').click(function(){
+     $(this).text(function(i, text){
+       return text === "mph" ? "kph" : "mph";
+     });
+     if ($('span#wind-gust').text() == result.current_observation.wind_gust_mph) {
+       $('span#wind-gust').html(result.current_observation.wind_gust_kph);
+     } else if ($('span#wind-gust').text() == result.current_observation.wind_gust_kph) {
+       $('span#wind-gust').html(result.current_observation.wind_gust_mph);
+     }
+   });
+   //Below: change background image according to temperature range
+
+  });
+    }, "jsonp");
+});
