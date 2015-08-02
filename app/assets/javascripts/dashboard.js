@@ -110,7 +110,8 @@ for (var i = 0; i < contador ; i++) {
 
                                 for (var i = 0; i < fecha.length; i++) {           // Loop para identificar id del punto y redirigir al sitio 
                                     if (arreglo_data[i][0] == param_x && distancia[i]== param_y){
-                                        url = 'http://192.168.1.20:3000/tracks/' + track_id[i];
+                                        url = 'http://rubiapp.herokuapp.com/tracks/' + track_id[i];   // URL en produccion
+                                        //url = 'http://192.168.1.20:3000/tracks/' + track_id[i];     // URL en development
                                         window.location.replace(url);
                                         break;
                                         }
