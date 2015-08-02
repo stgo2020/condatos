@@ -3,8 +3,9 @@
 <script src="http://code.highcharts.com/highcharts.js"></script>
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
-
-<div id="container" class="grafico" ></div>
+<div class = "card1">
+  <div id="container" class="grafico" ></div>
+</div>
 
 <p>
 
@@ -83,27 +84,41 @@
 
 body { 
   margin:0; 
-  padding:0; 
+  padding:0;
+  background: #95a5a6; 
+}
+
+.card1{
+  position: absolute;
+  left: 60px;
+  top: 300px;
+  width: 600px;
+  height: 350px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0.3px 0.3px 0.3px 1px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
 .grafico{
-  position: relative;
-  left: 40px;
-  top: 300px;
-  width: 600px;
+  position: absolute;
+  top:  30px;
+  left: 10px;
+  width: 550px;
   height: 300px;
+  z-index: 2;
 }
 
 #info{
   position:relative;
   margin-left: 3%;
-  width: 630px;
+  width: 600px;
   height:250px;
 }
 
 #map {
 position:absolute;
-top:90px;
+top:125px;
 left:720px;
 height: 500px;
 width: 600px;

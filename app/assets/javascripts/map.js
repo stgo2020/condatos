@@ -234,16 +234,15 @@
   })
 }).addTo(map);
 
-
-});
-
 ////////////////////////////// Tablas de Velocidad vs Tiempo  /////////////////////////////////////////////////////
 ////////////////////////////// Dibujar Marcador Viajero       /////////////////////////////////////////////////////
 
-$(function () {$.getJSON('/tracks.json', function (data) {
-
-
         $('#container').highcharts({
+              
+             rangeSelector: {
+                allButtonsEnabled: true,
+                selected: 2
+                },
 
              plotOptions: {
                 crosshairs: true,
@@ -292,6 +291,6 @@ $(function () {$.getJSON('/tracks.json', function (data) {
                 type: 'area',
             }]
         });
-    });
-});
 
+
+});

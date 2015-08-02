@@ -3,9 +3,10 @@
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>  
 
-
+<!-- Tarjeta Resumen de Recorridos-->
 <div class="card3">
-<div id="container" class="sidebar" style="height: 400px; width: 310px"></div>
+<div class="Mis_Recorridos"><%= link_to 'Mis Recorridos', tracks_path %></div>
+<div id="container" class="sidebar" style="height: 300px; width: 600px"></div>
 </div>
 
 <!-- Tarjeta Estadisticas Globales-->
@@ -24,26 +25,38 @@
 
 
 <!-- Tarjeta Clima -->
+  <div class="card2">
   <div id='imagen' class=imagen></div>
   <div id='fecha' class=fechaT></div>
-  <div class="card2"></div>
   <span id="city"></span>
   <span id="humidity"></span>
   <div class="datos_temp"><span id="temp"></span></div> 
+  </div>
 
 <style>
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
 body {
-	background: #bdc3c7;
+	background: #95a5a6;
+}
+
+.Mis_Recorridos{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	color: gray;
+	font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 2;
 }
 
 .card3 {
     position: absolute;
-	left: 1100px;
-	top:  100px;
+	left: 50px;
+	top:  400px;
 	background: #fff;
-	height: 420px; width: 350px;
+	height: 380px; 
+	width: 630px;
 	border-radius: 7px;
 	box-shadow: 0.3px 0.3px 0.3px 1px rgba(0,0,0,0.2);
 	font-family: 'Roboto', sans-serif;
@@ -52,13 +65,14 @@ body {
 
 .sidebar{
 	position:absolute;
+	top: 60px;
 	left: 20px;
 }
 
 .imagen{
 	position: absolute;
-	left: 285px;
-	top: 485px;
+	left: 235px;
+	top: 75px;
     z-index: 3;
 }
 
@@ -66,8 +80,8 @@ body {
 .datos_temp{
 	position: absolute;
 	display:block;
-	left: 70px;
-    top: 485px;
+	left: 20px;
+    top: 75px;
 }
 
 #temp {
@@ -83,14 +97,13 @@ body {
 #status-icon{
 	position: absolute;
 	left: 270px;
-	top: 470px;
     z-index: 2;
 }
 
 #humidity {
 	position: absolute;
-	left: 80px;
-	top: 580px;
+	left: 30px;
+	top: 172px;
 	color: black;
 	font-size: 15px;
     font-family: 'Roboto', sans-serif;
@@ -99,8 +112,8 @@ body {
 
 .fechaT{
 	position: absolute;
-	left: 80px;
-	top: 450px;
+	left: 30px;
+	top: 50px;
 	color: black;
 	font-size: 15px;
     font-family: 'Roboto', sans-serif;
@@ -109,8 +122,8 @@ body {
 
 #city {
 	position: absolute;
-	left: 80px;
-	top: 420px;
+	left: 30px;
+	top: 20px;
 	color: gray;
 	font-size: 20px;
     font-family: 'Roboto', sans-serif;
@@ -120,8 +133,8 @@ body {
 
 .card2 {
     position: absolute;
-	left: 50px;
-	top:  400px;
+	left: 400px;
+	top:  100px;
 	background: #fff;
 	height: 220px; width: 340px;
 	border-radius: 7px;

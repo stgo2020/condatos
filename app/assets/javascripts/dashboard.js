@@ -122,7 +122,7 @@ for (var i = 0; i < contador ; i++) {
             },
 
             title: {
-                text: 'Mis Recorridos'
+                text: ' '
             },
 
             tooltip: {
