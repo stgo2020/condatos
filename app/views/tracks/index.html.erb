@@ -23,11 +23,11 @@
     <% @tracks.accessible_by(current_ability).each do |track| %>
 
       <tr>
-        <td><%= track.name %></td>
-        <td><%= track.fecha%></td>
-        <td><%= track.distancia %> km</td>
-        <td><%= Integer(track.tiempo/3600) %>:<%= Integer((track.tiempo - Integer(track.tiempo/3600)*3600)/60) %>:<%= track.tiempo - Integer(track.tiempo/3600)*3600 - (Integer((track.tiempo - Integer(track.tiempo/3600)*3600)/60))*60 %></td> 
-        <td><%= track.velocidad%> km/hr</td>
+        <td><%= track.name if track.name%></td>
+        <td><%= track.fecha if track.fecha%></td>
+        <td><%= track.distancia if track.distancia%> km</td>
+        <td><%= track.tiempo if track.tiempo%> seg</td> 
+        <td><%= track.velocidad if track.velocidad%> km/hr</td>
         <td><%= link_to image_tag("ver.png",    :alt => "rss feed", size: "25") , track_path(track) %></td>
         <td><%= link_to image_tag("upload.png", :alt => "rss feed", size: "25") , track_points_path(track) %><td>
         <td><%= link_to image_tag("editar.png", size: "25"), "#myModal#{track.id}", :data => { :toggle =>"modal" } %></td> 
