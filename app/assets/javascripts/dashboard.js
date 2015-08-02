@@ -86,7 +86,6 @@ for (var i = 0; i < contador ; i++) {
             arreglo_data[i][3] = track_id[i];   
         }
 
-
         // create the chart
         $('#container').highcharts('StockChart', {
             chart: {
@@ -121,7 +120,6 @@ for (var i = 0; i < contador ; i++) {
                     }
                 }
             },
-
 
             title: {
                 text: 'Mis Recorridos'
