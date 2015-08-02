@@ -1,17 +1,26 @@
-<title>Bienvenido <%= current_user.nombre %> <%= current_user.apellido %></title>
- <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+<title>Bienvenido <%= current_user.nombre %></title>
+<link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+<script src="http://code.highcharts.com/stock/highstock.js"></script>
+<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="http://code.highcharts.com/stock/highcharts-more.js"></script>
 
 
+
+
+<div class="card3">
+<div id="container" class="sidebar" style="height: 400px; width: 310px"></div>
+</div>
 
 <!-- Tarjeta Estadisticas Globales-->
 	<div id='dashboard' class=dark></div>
 	<div id='tiempo_t' class="estilo2"></div>
 	<div id='distancia_t' class="estilo1"></div>
+	<div id='recorridos_t' class="estilo3"></div>
 	<div class="container">
 		<div class="card">
 				<div class="nombre"> <%= current_user.nombre %> <%= current_user.apellido %></div>
 				<div class="weather">
-					<div class="sun"></div>
+				<div class="sun"></div>
 				</div>
 	 	</div>
 	</div>
@@ -30,6 +39,23 @@
 
 body {
 	background: #bdc3c7;
+}
+
+.card3 {
+    position: absolute;
+	left: 1100px;
+	top:  100px;
+	background: #fff;
+	height: 420px; width: 350px;
+	border-radius: 7px;
+	box-shadow: 0.3px 0.3px 0.3px 1px rgba(0,0,0,0.2);
+	font-family: 'Roboto', sans-serif;
+	z-index: 1;
+}
+
+.sidebar{
+	position:absolute;
+	left: 20px;
 }
 
 .imagen{
@@ -170,6 +196,16 @@ body {
 	top: 220px;
 	color: black;
 	font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 3;
+}
+
+.estilo3 {
+	position: absolute;
+	left: 85px;
+	top: 275px;
+	color: black;
+	font-size: 15px;
     font-family: 'Roboto', sans-serif;
     z-index: 3;
 }

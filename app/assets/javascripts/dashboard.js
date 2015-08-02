@@ -17,14 +17,16 @@ fecha     = new Array(numero_elementos);
 tiempo    = new Array(numero_elementos);
 velocidad = new Array(numero_elementos);
 distancia = new Array(numero_elementos);
+track_id  = new Array(numero_elementos);
 contador = 0;
 
 for (var i = 0; i < elemento.length; i++) {
     if(elemento[i].props[0]==id){
     	fecha[contador]     = elemento[i].props[1];
-		tiempo[contador]    = elemento[i].props[2]; 
-		velocidad[contador] = elemento[i].props[3]; 
-		distancia[contador] = elemento[i].props[4]; 
+		  tiempo[contador]    = elemento[i].props[2]; 
+		  velocidad[contador] = elemento[i].props[3]; 
+		  distancia[contador] = elemento[i].props[4];
+      track_id[contador]  = elemento[i].props[5]; 
     	contador++;
     }
 }
@@ -62,9 +64,11 @@ for (var i = 0; i < contador ; i++) {
   fecha_HTML       = document.getElementById('fecha');
   tiempo_HTML      = document.getElementById('tiempo_t');
   distancia_HTML   = document.getElementById('distancia_t');
-  fecha_HTML.innerHTML     = datetime;
-  distancia_HTML.innerHTML = distancia_total.toFixed(2) + ' Km';
-  tiempo_HTML.innerHTML    = horas_total + ':' + minutos_total + ':' + segundos_total + ' hrs';
+  recorridos_HTML   = document.getElementById('recorridos_t');  
+  recorridos_HTML.innerHTML = contador + ' Recorridos'; 
+  fecha_HTML.innerHTML      = datetime;
+  distancia_HTML.innerHTML  = distancia_total.toFixed(2) + ' Km';
+  tiempo_HTML.innerHTML     = horas_total + ':' + minutos_total + ':' + segundos_total + ' hrs';
 
 
 

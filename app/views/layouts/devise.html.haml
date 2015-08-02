@@ -6,13 +6,24 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    .fondo
     .row-fluid
       .span10.offset1
         .hero-unit.text-center
           %h1
             RUBI
           %p
-            Estás a un pedal de cambiar el mundo
+            Hora de Pedalear
     .row-fluid
       .span4.offset4
         = yield
+
+
+:css
+  body {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+

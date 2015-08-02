@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+        @tracks = Track.all
         @user = User.find(params[:id])
         authorize! :show, @user
         gon.user_number = current_user.id
