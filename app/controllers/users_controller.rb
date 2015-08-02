@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 
   # GET /users
   # GET /users.json
+  def id
+    @user = current_user
+  end
+
   def index
     @users = User.all
   end
@@ -11,7 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
         @tracks = Track.all
-        @user = User.find(params[:id])
+        @user = current_user  #User.find(params[:id])
         authorize! :show, @user
         gon.user_number = current_user.id
   end
@@ -70,7 +74,8 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user    # Linea necesaria para que al autentificar se envie al inicio (users#show)
+      #@user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

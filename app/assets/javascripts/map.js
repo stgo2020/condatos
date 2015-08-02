@@ -51,6 +51,8 @@
  t1 = t1.filter(function(n){ return n != undefined });  // Eliminar elementos nulos
 
 ///////////////////////////////// Obtener Vector Velocidad ///////////////////////////////////////////////////
+///////////////////////////////// Esto sirve para graficar la velocidad vs tiempo ////////////////////////////
+///////////////////////////////////// Mis Recorridos App /////////////////////////////////////////////////////
 
  largo_velocidad = xf.length - 1;
  v      = new Array(largo_velocidad);
@@ -71,14 +73,25 @@
     dt    = Math.abs(t_0 - t_1)/3600;
     v[i]  = (dx/dt).toFixed(2);
     if (v[i] >= limite_velocidad){
-      v[i] = null;
+      v[i]  = null;
+      t1[i] = null;
+      xf[i] = null;
     }
  }
 
- for (var i = 0; i < info_v.length; i++) {            // Arreglo de elementos para graficar morris.js
-    info_v[i] = { time: t1[i], speed: v[i] };
+ v  = v.filter(function(n){ return n != undefined });   // Eliminar elementos nulos
+ t1 = t1.filter(function(n){ return n != undefined });  // Eliminar elementos nulos
+ xf = xf.filter(function(n){ return n != undefined });  // Eliminar elementos nulos
+ info_v = new Array(v.length - 1);                      
+
+ for (var i = 0; i < info_v.length; i++) {             // Arreglo de elementos para graficar morris.js
+    info_v[i] = new Array(2);
+    t1_dd     = new Date(t1[i]);
+    info_v[i][0] = parseInt(t1_dd.getTime()); 
+    info_v[i][1] = parseInt(v[i]); 
  }
 
+//info_v = info_v.splice(0,580);                      // En case de limitar el largo del arreglo
 
 ///////////////////////////////// Calculo de Centroide del Mapa ////////////////////////////////////////// 
 ////
@@ -211,7 +224,7 @@
 
 //////////////////////////////// Interaccion con Mapa ////////////////////////////////////////////////////
 
-  var marker =  L.marker([0, 0], {    // Marcador viajero
+  marker =  L.marker([0, 0], {    // Marcador viajero
   icon: L.mapbox.marker.icon({
     'marker-size': 'medium',          // https://www.mapbox.com/guides/an-open-platform/#simplestyle
     'marker-color': '#3885d4',
@@ -223,16 +236,6 @@
 
 ////////////////////////////// Tablas de Estadisticas /////////////////////////////////////////////////////
 
-new Morris.Line({
-  element: 'info',                    // ID of the element in which to draw the chart.
-  data: info_v,                       // Arreglo con la informacion a mostrar
-  xkey: ['time'],                     // Eje X
-  ykeys: ['speed'],                   // eje Y
-  labels: ['Velocidad [km/hr]'],      // Titulos de Ejes
-  pointSize: 0,
-  }).on( "click", function(i){
-      marker.setLatLng(L.latLng(xf[i][0],xf[i][1]));          // Mostrar marcador
-      console.log(i)
-  }).resize(function() { redoTheChartFunction();}) ;
 
 });
+

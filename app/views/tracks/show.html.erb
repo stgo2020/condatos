@@ -1,6 +1,10 @@
 <title><%= @track.name %> - <%= @track.fecha %></title>
 <meta charset=utf-8 />
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
 
+
+<div id="container" class="grafico" ></div>
 
 <p>
 
@@ -13,8 +17,8 @@
       <strong><%= @track.name %></strong>
       <div class="botones">
         <div align="right">
-        <%= link_to image_tag("editar.png", :alt => "rss feed", size: "20") ,  edit_track_path(@track) %>
         <%= link_to image_tag("upload.png", :alt => "rss feed", size: "20") , track_points_path(@track) %>
+        <%= link_to image_tag("editar.png", size: "20"), "#myModal", :data => { :toggle =>"modal" } %>
         </div>
       </div>
   </div>
@@ -45,12 +49,49 @@
 </div>
 
 
+<!-- Modal 1: Editar Propiedades -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Editar Propiedades: <%= @track.name %></h4>
+      </div>
+      <div class="modal-body">
+      <%= form_for(@track) do |f| %>
+        <div class="field">
+          <%= f.label :nombre %><br>
+          <%= f.text_field :name %>
+        </div>
+        <div class="field">
+          <%= f.label :fecha %><br>
+          <%= f.date_select :fecha %>
+        </div>
+        <br>
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 <style>
 
 body { 
   margin:0; 
   padding:0; 
+}
+
+.grafico{
+  position: relative;
+  left: 40px;
+  top: 300px;
+  width: 600px;
+  height: 300px;
 }
 
 #info{
@@ -85,8 +126,9 @@ width: 600px;
 }
 
 .panel {
+  top: 100px;
   margin-left:2%;
-  position: relative;
+  position: absolute;
   left: 30px;
   width: 600px;
   //@include gradient-horizontal(#1834cc, #1dc937, 0%, 100%);
