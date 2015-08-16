@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rubi.user_id %>
+</p>
+
+<p>
+  <strong>Serie:</strong>
+  <%= @rubi.serie %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @rubi.nombre %>
+</p>
+
+<p>
+  <strong>Identificacion:</strong>
+  <%= @rubi.identificacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_rubi_path(@rubi) %> |
+<%= link_to 'Back', rubis_path %>

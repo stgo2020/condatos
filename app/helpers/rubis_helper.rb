@@ -1,0 +1,2 @@
+module RubisHelper
+end

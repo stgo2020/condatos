@@ -1,0 +1,55 @@
+<title>Configurar Dispositivo "<%= @rubi.nombre %>"</title>
+
+
+<div class="card3">
+
+  <h1>Configurar Rubi</h1>
+
+  <%= simple_form_for(@rubi) do |f| %>
+    
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+    <!--  <%= f.input :user_id %> -->
+    <!--  <%= f.input :serie %>   -->
+      <%= f.input :nombre %>
+      <%= f.input :identificacion %>
+    </div>
+
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+
+  <% end %>
+
+</div>
+
+
+<style>
+
+.titulo{
+
+
+
+}
+
+
+
+.card3 {
+  position: absolute;
+	left: 50px;
+	top:  200px;
+	background: #fff;
+	height: 380px; 
+	width: 630px;
+	border-radius: 7px;
+	box-shadow: 0.3px 0.3px 0.3px 1px rgba(0,0,0,0.2);
+	font-family: 'Roboto', sans-serif;
+	z-index: 1;
+}
+
+body {
+  background: #95a5a6;
+}
+</style>

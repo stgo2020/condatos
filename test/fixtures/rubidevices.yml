@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  identifier: MyString
+  model: 1
+  creation: 2015-08-15
+  owner: MyString
+
+two:
+  user_id: 
+  identifier: MyString
+  model: 1
+  creation: 2015-08-15
+  owner: MyString

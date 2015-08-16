@@ -5,6 +5,7 @@ class Ability
 
         can :manage, Track, user_id: user.id
         can :manage, user
+        can :manage, Rubi, user_id: user.id
 
     end
 end

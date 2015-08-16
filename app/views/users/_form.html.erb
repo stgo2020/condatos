@@ -14,24 +14,25 @@
           <th><%= f.label :nombre %> </th>
           <th><%= f.text_field :nombre %></th>
         </tr>
-      </div>
-      <div class="form-inputs">
+  
         <tr>
           <th><%= f.label :apellido %> </th>
           <th><%= f.text_field :apellido %></th>
         </tr>
-      </div>
-      <div class="form-inputs">
+  
         <tr>
           <th><%= f.label :nacimiento %> </th>
           <th><%= f.date_field :nacimiento %></th>    
         </tr>
-      </div>
-        <div class="form-inputs">
+    
         <tr>
           <th><%= f.label :Genero %> </th>
-          <th><%= f.number_field :sexo %></th>
+          <th><%= f.input_field :genero, :collection => [['Hombre',false],['Mujer',true]], :include_blank => false%></th>
+        
         </tr>
+
+  
+
       </div>
 
 

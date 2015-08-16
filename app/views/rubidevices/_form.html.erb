@@ -1,0 +1,25 @@
+<%= simple_form_for(@rubidevice) do |f| %>
+  <%= f.error_notification %>
+
+<%= current_user %>
+
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :identifier %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :creation %>
+  </div>
+    <div class="field">
+    <%= f.label :Dueño %><br>
+    <%= f.text_field :owner %>
+  </div>
+
+      <div class="form-actions">   
+          <%= f.submit "Agregar"%>
+      </div>
+
+
+<% end %>

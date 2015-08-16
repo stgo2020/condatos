@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :rubis
+
+  resources :rubidevices
+
   get 'pages/home'
 
   get 'pages/about'

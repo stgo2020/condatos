@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rubidevice.user %>
+</p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @rubidevice.identifier %>
+</p>
+
+<p>
+  <strong>Creation:</strong>
+  <%= @rubidevice.creation %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @rubidevice.owner %>
+</p>
+
+<%= link_to 'Edit', edit_rubidevice_path(@rubidevice) %> |
+<%= link_to 'Back', rubidevices_path %>

@@ -1,0 +1,190 @@
+<title>Mis Dispositivos</title>
+
+
+<div class="card3">
+  
+  <div class="titulo">Dispositivos</div>
+
+  <div class="tabla">
+    <table class="table table-hover">
+      <thead>
+        <tr><th>Nombre</th>
+        <th><th><th><th><th>Id</th></th></th></th></th>
+        <th><th><th>Estado</th></th></th>
+        </tr>
+      </thead>
+          
+        </tr>
+
+        <tbody>
+          <% @rubis.each do |rubi| %>
+            <tr>
+              <!-- <td><%= rubi.user_id %></td> -->
+              <td><%= rubi.nombre %></td>
+              <td><%= rubi.identificacion %></td>
+              <td>Activo</td>
+              <!-- <td><%= link_to 'Show', rubi %></td> -->
+              <td><%= link_to image_tag("editar.png", size: "25"), "#myModal#{rubi.id}", :data => { :toggle =>"modal" } %></td>
+              <td><%= link_to image_tag("Basura.png", :alt => "rss feed", size: "25") , rubi, method: :delete, data: { confirm: '¿Estás Seguro?' }%></td> 
+            </tr>
+
+            <!-- Modal 1: Editar Propiedades -->
+            <div class="modal fade" id="myModal<%= rubi.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Editar Propiedades: <%= rubi.nombre %></h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for(rubi) do |f| %>
+                      <div class="field">
+                        <%= f.label :nombre %><br>
+                        <%= f.text_field :nombre %>
+                      </div>
+                      <div class="field">
+                        <%= f.label :identificación %><br>
+                        <%= f.text_field :identificacion %>
+                      </div>
+                      <br>
+                      <div class="actions">
+                        <%= f.submit 'Editar' %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
+        </tbody>
+    </table>
+  </div>
+  
+  <br>
+
+  <!-- <button type="button" class="btn"><%= link_to 'Agregar', new_rubi_path %></button> -->
+  <!-- <%= link_to 'New Rubi', new_rubi_path %> -->
+
+
+<!-- Boton y modal para creacion de Rubidispositivo -->
+  <button type="button" class="btn"><%= link_to 'Agregar', "#myModal", :data => { :toggle =>"modal" } %></button>
+
+  <div class="modal fade" id="myModal<%= @rubi %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Ingresar Nuevo Dispositivo</h4>
+                  </div>
+                  <div class="modal-body">
+                    <%= form_for Rubi.new do |f| %>
+                      <div class="field">
+                        <%= f.label :nombre %><br>
+                        <%= f.text_field :nombre %>
+                      </div>
+                      <div class="field">
+                        <%= f.label :identificación %><br>
+                        <%= f.text_field :identificacion %>
+                      </div>
+                      <br>
+                      <div class="actions">
+                        <%= f.submit 'Crear' %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+  </div>
+</div>
+
+
+
+<style>
+
+.modal-content{
+  top: 100px;
+}
+
+.modal-backdrop {
+  z-index: -5;
+}
+
+.btn {
+    position: absolute;
+    left: 185px;
+    top: 300px;
+    background-color: #ecf0f1;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    position: absolute;
+    left: 185px;
+    top: 300px;
+    background-color: #ecf0f1;
+    border: 1px solid #2E373F;
+-webkit-transition: all .3s;
+-moz-transition: all .3s;
+-ms-transition: all .3s;
+-o-transition: all .3s;
+transition: all .3s;  
+}
+
+.tabla{
+    position: absolute;
+    left: 45px;
+    top: 80px;
+}
+
+
+table{
+ height:300px;
+}
+
+tbody{
+  overflow-y: scroll;
+  height: 160px;
+  width: 400px; 
+  top: 37.5px;
+  position: absolute;
+}
+
+.dispositivos{
+    position: absolute;
+    left: 30px;
+    top: 70px;
+}
+
+.titulo{
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    color: gray;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    z-index: 2;
+}
+
+.card3 {
+  position: absolute;
+  left: 100px;
+  top:  100px;
+  background: #fff;
+  height: 380px; 
+  width: 500px;
+  border-radius: 7px;
+  box-shadow: 0.3px 0.3px 0.3px 1px rgba(0,0,0,0.2);
+  font-family: 'Roboto', sans-serif;
+  z-index: 1;
+}
+
+body {
+  background: #95a5a6;
+}
+</style>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728042916) do
+ActiveRecord::Schema.define(version: 20150816000209) do
 
   create_table "points", force: :cascade do |t|
     t.float    "latitud"
@@ -23,6 +23,27 @@ ActiveRecord::Schema.define(version: 20150728042916) do
   end
 
   add_index "points", ["track_id"], name: "index_points_on_track_id"
+
+  create_table "rubidevices", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "identifier"
+    t.integer  "model"
+    t.date     "creation"
+    t.string   "owner"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "rubidevices", ["user_id"], name: "index_rubidevices_on_user_id"
+
+  create_table "rubis", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "serie"
+    t.text     "nombre"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "identificacion"
+  end
 
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
@@ -61,6 +82,8 @@ ActiveRecord::Schema.define(version: 20150728042916) do
     t.date     "nacimiento"
     t.boolean  "genero"
     t.integer  "sexo"
+    t.string   "rubi_id"
+    t.string   "rubi"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

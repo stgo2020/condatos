@@ -15,6 +15,7 @@ gem 'cancan'
 gem 'ruby'
 
 gem 'geocoder'
+gem 'eventmachine'
 
 #gem 'amcharts.rb'
 
