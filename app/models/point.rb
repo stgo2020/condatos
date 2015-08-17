@@ -2,7 +2,7 @@ require 'csv'
 
 class Point < ActiveRecord::Base
   
-  belongs_to :track
+  belongs_to :track, dependent: :destroy
 
   def self.import(file)                # Se podria mejorar haciendo ingresos de 500 arreglos por INSERT
 		point = Point.new                  # Creo un punto para obtener track_id, luego este punto se debe eliminar

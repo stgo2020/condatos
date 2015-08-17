@@ -1,6 +1,6 @@
 class Track < ActiveRecord::Base
 	
-	belongs_to :user
+	belongs_to :user, dependent: :destroy
 	validates_presence_of :user
 	has_many :points
 	validates_presence_of :name
